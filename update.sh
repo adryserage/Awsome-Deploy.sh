@@ -115,6 +115,7 @@ if [[ ! -n $rOff ]]; then
 #    Starting Apt Clean     #
 #############################\e[0m
 "
+apt autoremove | tee -a /tmp/update-output.txt
 apt-get clean | tee -a /tmp/update-output.txt
 echo -e "
 \e[32m#############################
