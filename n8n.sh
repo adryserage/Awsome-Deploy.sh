@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo -e "
 \e[32m##############################
 # pull n8n docker #
