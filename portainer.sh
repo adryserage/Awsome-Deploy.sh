@@ -77,22 +77,13 @@ fi
 
 echo "${red}$HEADER${normal}"
 
-if [[ ! -n $uOff ]]; then
-    echo -e "
-\e[32m#############################
-#     Updating Data Base    #
-#############################\e[0m
-"
-apt-get update | tee /tmp/update-output.txt
-curl -sSL https://repos.insights.digitalocean.com/install.sh | sudo bash | tee /tmp/update-output.txt
-fi
-
 if [[ ! -n $gOff ]]; then
     echo -e "
 \e[32m##############################
 # Upgrading Operating System #
 ##############################\e[0m
 "
+apt-get update -y | tee -a /tmp/update-output.txt
 apt-get upgrade -y | tee -a /tmp/update-output.txt
 fi
 
