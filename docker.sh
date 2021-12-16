@@ -10,12 +10,6 @@ sudo apt-get install \
     curl \
     gnupg \
     lsb-release
-echo -e "
-\e[32m#############################
-#     Add Docker’s official GPG key    #
-#############################\e[0m
-"
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
 echo -e "
 \e[32m#############################
