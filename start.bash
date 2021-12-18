@@ -3,3 +3,4 @@ bash portainer.sh
 bash autoheal.sh 
 bash ftp.bash 
 bash whmcs.sh
+bash homebrew.sh
