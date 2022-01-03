@@ -8,5 +8,7 @@ sudo apt autoremove -y
 sudo apt-get clean -y
 sudo apt-get autoremove --purge -y
 
+sudo curl -sSL https://repos.insights.digitalocean.com/install.sh | sudo bash
+
 
 
