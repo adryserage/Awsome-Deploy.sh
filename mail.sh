@@ -1,4 +1,4 @@
-docker run \
+docker run -dit \
     --net=bridge \
     -e TZ=Europe/Prague \
     -v /mail/data:/data \
