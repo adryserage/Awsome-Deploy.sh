@@ -3,7 +3,7 @@ docker run -dit \
     -e TZ=Europe/Prague \
     -v /mail/data:/data \
     --name "mailserver" \
-    -h "mail.example.com" \
+    -h "mail.allowebs.com" \
     -e "HTTP_PORT=8080" \
     -e "HTTPS_PORT=4433" \
     -p 4190:4190 \
