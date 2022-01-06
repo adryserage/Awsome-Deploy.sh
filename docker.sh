@@ -49,7 +49,7 @@ docker run -d -p 9443:9443 --name portainer \
             ;;
             "Poste.io")
             echo "Install Poste.io"
-            docker run \
+            docker run -d \
     --net=host \
     -e TZ=Europe/Prague \
     -v /mail/data:/data \
