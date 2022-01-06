@@ -50,11 +50,16 @@ docker run -d -p 9443:9443 --name portainer \
             "Poste.io")
             echo "Install Poste.io"
             docker run -d \
-    --net=host \
-    -e TZ=Europe/Prague \
+    -p 25:25 \
+    -p 80:80 \
+    -p 443:443 \
+    -p 110:110 \
+    -p 143:143 \
+    -p 465:465 \
+    -p 587:587 \
+    -p 993:993 \
+    -p 995:995 \
     -v /mail/data:/data \
-    --name "mailserver" \
-    -h "mail.allowebs.com" \
     -t analogic/poste.io
             ;;
             "Nginx")
