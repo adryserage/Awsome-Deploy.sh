@@ -1,8 +1,8 @@
 # Script That make life easier !
 
 ## Usage
-`git clone https://github.com/Allowebs/Deploy.sh`
-`chmod u+x Deploy.sh`
+```git clone https://github.com/Allowebs/Deploy.sh```
+```chmod u+x Deploy.sh/*```
 
 ## About files
 
