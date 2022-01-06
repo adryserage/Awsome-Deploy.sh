@@ -9,3 +9,14 @@
 - Install DigitalOcean Monitor
 - Change Time zone System"
 - Clean System
+
+## Docker.sh
+
+- Install Docker
+- Install FTP
+- Install Portainer
+- Install Autoheal
+- Install SSL for Apache
+- Install Poste.io
+- Install Nginx
+
