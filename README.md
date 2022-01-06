@@ -2,6 +2,7 @@
 
 ## Usage
 ```git clone https://github.com/Allowebs/Deploy.sh```
+
 ```chmod u+x Deploy.sh/*```
 
 ## About files
