@@ -1,4 +1,9 @@
-## About files - Script That make life easier !
+# Script That make life easier !
+
+## Usage
+`git clone https://github.com/Allowebs/Deploy.sh && chmod u+x *`
+
+## About files
 
 ### Basic.sh
 
