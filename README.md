@@ -1,6 +1,4 @@
-# About files
-
-## Script That make life easier !
+# About files - ## Script That make life easier !
 
 ### Basic.sh
 
