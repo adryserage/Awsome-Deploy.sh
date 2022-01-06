@@ -64,7 +64,7 @@ docker run -d -p 9443:9443 --name portainer \
     --env "VIRTUAL_HOST=allowebs.com" \
     --env "LETSENCRYPT_HOST=allowebs.com" \
     nginx
-            ;:
+            ;;
         "Quit")
             break
             ;;
