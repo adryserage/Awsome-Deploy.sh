@@ -11,6 +11,7 @@ do
             sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
+clear
             ;;
         "Homebrew")
             echo "Install Homebrew"
@@ -18,6 +19,7 @@ sudo apt-get dist-upgrade -y
 su non-root
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 su root
+clear
             ;;
         "Froxlor")
             echo "Install Froxlor"
@@ -31,25 +33,30 @@ sudo apt autoremove -y
 sudo apt-get clean -y
 sudo apt-get autoremove --purge -y
 apt-get install froxlor
+clear
             ;;
         "YunoHost")
             echo "Install YunoHost"
             curl https://install.yunohost.org | bash
 yunohost tools postinstall
+clear
             ;;
          "DigitalOcean Monitor")
             echo "Install DigitalOcean Monitor"
              sudo curl -sSL https://repos.insights.digitalocean.com/install.sh | sudo bash
+             clear
             ;;
         "Change Time zone")
             echo "Change Time zone"
-              dpkg-reconfigure tzdata 
+              dpkg-reconfigure tzdata
+              clear
             ;;
          "Clean")
             echo "Clean"
             sudo apt autoremove -y
 sudo apt-get clean -y
 sudo apt-get autoremove --purge -y
+clear
             ;;
         "Quit")
             break
