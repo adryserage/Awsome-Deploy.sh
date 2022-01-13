@@ -16,9 +16,9 @@ clear
         "Homebrew")
             echo "Install Homebrew"
             sudo useradd -m -p all0webs.cOm non-root
-su non-root
+su -c non-root
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-su root
+sudo root
 clear
             ;;
         "Froxlor")
