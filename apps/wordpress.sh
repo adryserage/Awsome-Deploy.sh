@@ -1,6 +1,10 @@
 #!/bin/bash
 # WordPress Docker Installation Script
 
+# Source the server IP utility
+SCRIPT_DIR="$(dirname "$(dirname "$0")")"
+source "$SCRIPT_DIR/utils/get_server_ip.sh"
+
 # Set default values
 DB_NAME="wordpress"
 DB_USER="wordpress"
@@ -65,7 +69,9 @@ docker run -d \
 echo ""
 echo "WordPress installation completed!"
 echo "=================================="
-echo "WordPress is now running at: http://localhost:$PORT"
+# Get server IP
+SERVER_IP=$(get_server_ip)
+echo "WordPress is now running at: http://${SERVER_IP}:$PORT"
 echo ""
 echo "Database Information (SAVE THIS INFORMATION):"
 echo "Database Name: $DB_NAME"

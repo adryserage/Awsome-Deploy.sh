@@ -3,6 +3,10 @@
 # OnTrack Installation Script
 # This script installs OnTrack, a personal expense tracking app
 
+# Source the server IP utility
+SCRIPT_DIR="$(dirname "$(dirname "$0")")"
+source "$SCRIPT_DIR/utils/get_server_ip.sh"
+
 # Color definitions
 RED='\e[1;31m'
 GREEN='\e[1;32m'
@@ -146,7 +150,9 @@ EOL
         
         success "OnTrack has been successfully installed with Docker!"
         echo -e "${GREEN}=======================================${NC}"
-        echo -e "Access OnTrack at http://localhost:3000"
+        # Get server IP
+        SERVER_IP=$(get_server_ip)
+        echo -e "Access OnTrack at http://${SERVER_IP}:3000"
         echo -e "${GREEN}=======================================${NC}"
         echo -e "To stop OnTrack: docker-compose down"
         echo -e "To start OnTrack: docker-compose up -d"
@@ -217,7 +223,9 @@ EOL
         success "OnTrack has been successfully installed manually!"
         echo -e "${GREEN}=======================================${NC}"
         echo -e "To start the server: bundle exec rails server"
-        echo -e "Then access OnTrack at http://localhost:3000"
+        # Get server IP
+        SERVER_IP=$(get_server_ip)
+        echo -e "Then access OnTrack at http://${SERVER_IP}:3000"
         echo -e "${GREEN}=======================================${NC}"
         ;;
         

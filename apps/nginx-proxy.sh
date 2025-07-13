@@ -3,6 +3,10 @@
 # Nginx Proxy Manager Installation Script
 # This script installs Nginx Proxy Manager with automatic SSL certificate management
 
+# Source the server IP utility
+SCRIPT_DIR="$(dirname "$(dirname "$0")")"
+source "$SCRIPT_DIR/utils/get_server_ip.sh"
+
 # Color definitions
 RED='\e[1;31m'
 GREEN='\e[1;32m'
@@ -156,7 +160,9 @@ if docker ps | grep -q "nginx-proxy" && docker ps | grep -q "nginx-proxy-acme"; 
     echo -e "HTTP Port: ${HTTP_PORT}"
     echo -e "HTTPS Port: ${HTTPS_PORT}"
     echo -e "Admin Port: ${ADMIN_PORT}"
-    echo -e "Access admin panel at http://localhost:${ADMIN_PORT}"
+    # Get server IP
+    SERVER_IP=$(get_server_ip)
+    echo -e "Access admin panel at http://${SERVER_IP}:${ADMIN_PORT}"
     echo -e "${GREEN}=======================================${NC}"
     echo -e "To use with other containers, connect them to the '${NETWORK_NAME}' network"
     echo -e "and set the following environment variables on your containers:"

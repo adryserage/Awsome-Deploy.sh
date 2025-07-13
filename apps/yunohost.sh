@@ -1,7 +1,11 @@
 #!/bin/bash
 
 # YunoHost Installation Script
-# This script installs YunoHost, a server operating system aimed at self-hosting
+# This script installs YunoHost, a self-hosting platform
+
+# Source the server IP utility
+SCRIPT_DIR="$(dirname "$(dirname "$0")")"
+source "$SCRIPT_DIR/utils/get_server_ip.sh"
 
 # Color definitions
 RED='\e[1;31m'
@@ -132,8 +136,10 @@ case $INSTALL_METHOD in
         
         success "YunoHost Docker container has been started!"
         echo -e "${GREEN}=======================================${NC}"
-        echo -e "Access YunoHost at: https://localhost"
-        echo -e "SSH access: ssh -p ${SSH_PORT} root@localhost"
+        # Get server IP
+        SERVER_IP=$(get_server_ip)
+        echo -e "Access YunoHost at: https://${SERVER_IP}"
+        echo -e "SSH access: ssh -p ${SSH_PORT} root@${SERVER_IP}"
         echo -e "Data directory: ${DATA_DIR}"
         echo -e "${GREEN}=======================================${NC}"
         echo -e "To complete the installation, run:"

@@ -3,6 +3,10 @@
 # n8n Installation Script
 # This script installs n8n, a workflow automation platform
 
+# Source the server IP utility
+SCRIPT_DIR="$(dirname "$(dirname "$0")")"
+source "$SCRIPT_DIR/utils/get_server_ip.sh"
+
 # Color definitions
 RED='\e[1;31m'
 GREEN='\e[1;32m'
@@ -127,7 +131,9 @@ fi
 if docker ps | grep -q "n8n"; then
     success "n8n has been successfully installed!"
     echo -e "${GREEN}=======================================${NC}"
-    echo -e "Access n8n at http://localhost:${PORT}"
+    # Get server IP
+    SERVER_IP=$(get_server_ip)
+    echo -e "Access n8n at http://${SERVER_IP}:${PORT}"
     if [ "$ENABLE_BASIC_AUTH" = "true" ]; then
         echo -e "Username: ${N8N_USER}"
         echo -e "Password: ${N8N_PASSWORD}"

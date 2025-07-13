@@ -3,6 +3,10 @@
 # Ethibox Installation Script
 # This script installs Ethibox, an open-source web app hoster
 
+# Source the server IP utility
+SCRIPT_DIR="$(dirname "$(dirname "$0")")"
+source "$SCRIPT_DIR/utils/get_server_ip.sh"
+
 # Color definitions
 RED='\e[1;31m'
 GREEN='\e[1;32m'
@@ -90,7 +94,9 @@ docker run -d \
 if docker ps | grep -q "ethibox"; then
     success "Ethibox has been successfully installed!"
     echo -e "${GREEN}=======================================${NC}"
-    echo -e "Access Ethibox at http://localhost:${PORT}"
+    # Get server IP
+    SERVER_IP=$(get_server_ip)
+    echo -e "Access Ethibox at http://${SERVER_IP}:${PORT}"
     echo -e "Data is stored in ${DATA_DIR}"
     echo -e "${GREEN}=======================================${NC}"
 else

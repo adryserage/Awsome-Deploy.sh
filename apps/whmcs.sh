@@ -3,6 +3,10 @@
 # WHMCS Installation Script
 # This script installs WHMCS, a web hosting billing & automation platform
 
+# Source the server IP utility
+SCRIPT_DIR="$(dirname "$(dirname "$0")")"
+source "$SCRIPT_DIR/utils/get_server_ip.sh"
+
 # Color definitions
 RED='\e[1;31m'
 GREEN='\e[1;32m'
@@ -145,7 +149,9 @@ volumes:
         echo -e "Database User: ${WHMCS_DB_USER}"
         echo -e "Database Password: ${WHMCS_DB_PASSWORD}"
         echo -e "${GREEN}=======================================${NC}"
-        echo -e "Access WHMCS at http://localhost:${WEB_PORT}"
+        # Get server IP
+        SERVER_IP=$(get_server_ip)
+        echo -e "Access WHMCS at http://${SERVER_IP}:${WEB_PORT}"
         echo -e "Complete the installation through the web interface"
         echo -e "${GREEN}=======================================${NC}"
         ;;

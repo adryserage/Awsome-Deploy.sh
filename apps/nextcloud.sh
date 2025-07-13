@@ -1,6 +1,10 @@
 #!/bin/bash
 # NextCloud Docker Installation Script
 
+# Source the server IP utility
+SCRIPT_DIR="$(dirname "$(dirname "$0")")"
+source "$SCRIPT_DIR/utils/get_server_ip.sh"
+
 # Set default values
 DB_NAME="nextcloud"
 DB_USER="nextcloud"
@@ -64,7 +68,7 @@ docker run -d \
   -e POSTGRES_PASSWORD=$DB_ROOT_PASSWORD \
   -e NEXTCLOUD_ADMIN_USER=$ADMIN_USER \
   -e NEXTCLOUD_ADMIN_PASSWORD=$ADMIN_PASSWORD \
-  -e NEXTCLOUD_TRUSTED_DOMAINS="localhost" \
+  -e NEXTCLOUD_TRUSTED_DOMAINS="$(get_server_ip)" \
   -v $VOLUME_NC:/var/www/html \
   --restart always \
   nextcloud:latest
@@ -72,7 +76,9 @@ docker run -d \
 echo ""
 echo "NextCloud installation completed!"
 echo "=================================="
-echo "NextCloud is now running at: http://localhost:$PORT"
+# Get server IP
+SERVER_IP=$(get_server_ip)
+echo "NextCloud is now running at: http://${SERVER_IP}:$PORT"
 echo ""
 echo "NextCloud Admin Credentials (SAVE THIS INFORMATION):"
 echo "Username: $ADMIN_USER"

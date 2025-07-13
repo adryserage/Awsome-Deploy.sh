@@ -1,6 +1,10 @@
 #!/bin/bash
 # Database Servers Installation Script (MySQL, PostgreSQL, MongoDB)
 
+# Source the server IP utility
+SCRIPT_DIR="$(dirname "$(dirname "$0")")"
+source "$SCRIPT_DIR/utils/get_server_ip.sh"
+
 PS3='Please select database to install: '
 options=("MySQL" "PostgreSQL" "MongoDB" "All" "Quit")
 select opt in "${options[@]}"
@@ -40,13 +44,15 @@ do
             echo ""
             echo "MySQL installation completed!"
             echo "============================"
-            echo "MySQL is now running at: localhost:$MYSQL_PORT"
+            # Get server IP
+            SERVER_IP=$(get_server_ip)
+            echo "MySQL is now running at: ${SERVER_IP}:$MYSQL_PORT"
             echo ""
             echo "MySQL Root Password (SAVE THIS INFORMATION): $MYSQL_ROOT_PASSWORD"
             echo ""
             echo "To stop MySQL: docker stop $MYSQL_CONTAINER_NAME"
             echo "To start MySQL: docker start $MYSQL_CONTAINER_NAME"
-            echo "To connect to MySQL: mysql -h 127.0.0.1 -P $MYSQL_PORT -u root -p"
+            echo "To connect to MySQL: mysql -h ${SERVER_IP} -P $MYSQL_PORT -u root -p"
             echo ""
             break
             ;;
@@ -86,7 +92,9 @@ do
             echo ""
             echo "PostgreSQL installation completed!"
             echo "=================================="
-            echo "PostgreSQL is now running at: localhost:$POSTGRES_PORT"
+            # Get server IP
+            SERVER_IP=$(get_server_ip)
+            echo "PostgreSQL is now running at: ${SERVER_IP}:$POSTGRES_PORT"
             echo ""
             echo "PostgreSQL Credentials (SAVE THIS INFORMATION):"
             echo "Username: $POSTGRES_USER"
@@ -94,7 +102,7 @@ do
             echo ""
             echo "To stop PostgreSQL: docker stop $POSTGRES_CONTAINER_NAME"
             echo "To start PostgreSQL: docker start $POSTGRES_CONTAINER_NAME"
-            echo "To connect to PostgreSQL: psql -h localhost -p $POSTGRES_PORT -U postgres -W"
+            echo "To connect to PostgreSQL: psql -h ${SERVER_IP} -p $POSTGRES_PORT -U postgres -W"
             echo ""
             break
             ;;
@@ -135,7 +143,9 @@ do
             echo ""
             echo "MongoDB installation completed!"
             echo "=============================="
-            echo "MongoDB is now running at: localhost:$MONGO_PORT"
+            # Get server IP
+            SERVER_IP=$(get_server_ip)
+            echo "MongoDB is now running at: ${SERVER_IP}:$MONGO_PORT"
             echo ""
             echo "MongoDB Credentials (SAVE THIS INFORMATION):"
             echo "Username: $MONGO_USER"
@@ -143,7 +153,9 @@ do
             echo ""
             echo "To stop MongoDB: docker stop $MONGO_CONTAINER_NAME"
             echo "To start MongoDB: docker start $MONGO_CONTAINER_NAME"
-            echo "To connect to MongoDB: mongo mongodb://$MONGO_USER:$MONGO_PASSWORD@localhost:$MONGO_PORT"
+            # Get server IP
+            SERVER_IP=$(get_server_ip)
+            echo "To connect to MongoDB: mongo mongodb://$MONGO_USER:$MONGO_PASSWORD@${SERVER_IP}:$MONGO_PORT"
             echo ""
             break
             ;;
@@ -212,14 +224,16 @@ do
             echo "All database servers installation completed!"
             echo "=========================================="
             echo ""
-            echo "MySQL is running at: localhost:$MYSQL_PORT"
+            # Get server IP
+            SERVER_IP=$(get_server_ip)
+            echo "MySQL is running at: ${SERVER_IP}:$MYSQL_PORT"
             echo "MySQL Root Password: $MYSQL_ROOT_PASSWORD"
             echo ""
-            echo "PostgreSQL is running at: localhost:$POSTGRES_PORT"
+            echo "PostgreSQL is running at: ${SERVER_IP}:$POSTGRES_PORT"
             echo "PostgreSQL Username: $POSTGRES_USER"
             echo "PostgreSQL Password: $POSTGRES_PASSWORD"
             echo ""
-            echo "MongoDB is running at: localhost:$MONGO_PORT"
+            echo "MongoDB is running at: ${SERVER_IP}:$MONGO_PORT"
             echo "MongoDB Username: $MONGO_USER"
             echo "MongoDB Password: $MONGO_PASSWORD"
             echo ""

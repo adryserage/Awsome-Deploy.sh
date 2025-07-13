@@ -1,6 +1,10 @@
 #!/bin/bash
 # Prometheus & Grafana Monitoring Stack Installation Script
 
+# Source the server IP utility
+SCRIPT_DIR="$(dirname "$(dirname "$0")")"
+source "$SCRIPT_DIR/utils/get_server_ip.sh"
+
 # Set default values
 NETWORK_NAME="monitoring-network"
 PROMETHEUS_CONTAINER_NAME="prometheus"
@@ -43,7 +47,7 @@ global:
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
-      - targets: ['localhost:9090']
+      - targets: ['$(get_server_ip):9090']
 
   - job_name: 'docker'
     static_configs:
@@ -75,8 +79,10 @@ docker run -d \
 echo ""
 echo "Monitoring stack installation completed!"
 echo "========================================"
-echo "Prometheus is now running at: http://localhost:$PROMETHEUS_PORT"
-echo "Grafana is now running at: http://localhost:$GRAFANA_PORT"
+# Get server IP
+SERVER_IP=$(get_server_ip)
+echo "Prometheus is now running at: http://${SERVER_IP}:$PROMETHEUS_PORT"
+echo "Grafana is now running at: http://${SERVER_IP}:$GRAFANA_PORT"
 echo ""
 echo "Grafana Default Credentials:"
 echo "Username: admin"
@@ -86,7 +92,7 @@ echo "To stop the monitoring stack: docker stop $GRAFANA_CONTAINER_NAME $PROMETH
 echo "To start the monitoring stack: docker start $PROMETHEUS_CONTAINER_NAME $GRAFANA_CONTAINER_NAME"
 echo ""
 echo "Next steps:"
-echo "1. Log in to Grafana at http://localhost:$GRAFANA_PORT"
+echo "1. Log in to Grafana at http://${SERVER_IP}:$GRAFANA_PORT"
 echo "2. Add Prometheus as a data source (URL: http://$PROMETHEUS_CONTAINER_NAME:9090)"
 echo "3. Import dashboards for your specific needs"
 echo ""

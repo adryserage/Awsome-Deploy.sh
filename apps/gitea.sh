@@ -1,6 +1,10 @@
 #!/bin/bash
 # Gitea Docker Installation Script
 
+# Source the server IP utility
+SCRIPT_DIR="$(dirname "$(dirname "$0")")"
+source "$SCRIPT_DIR/utils/get_server_ip.sh"
+
 # Set default values
 DB_NAME="gitea"
 DB_USER="gitea"
@@ -73,7 +77,9 @@ docker run -d \
 echo ""
 echo "Gitea installation completed!"
 echo "============================="
-echo "Gitea is now running at: http://localhost:$HTTP_PORT"
+# Get server IP
+SERVER_IP=$(get_server_ip)
+echo "Gitea is now running at: http://${SERVER_IP}:$HTTP_PORT"
 echo "SSH access is available on port: $SSH_PORT"
 echo ""
 echo "Database Information (SAVE THIS INFORMATION):"
