@@ -45,7 +45,7 @@ docker run -d -p 9443:9443 --name portainer \
             ;;
             "SSL for Apache")
             echo "Install SSL for Apache"
-               certbot --apache -d allowebs.com -d www.allowebs.com
+               certbot --apache -d $VIRTUAL_HOST -d www.$VIRTUAL_HOST
             ;;
             "Poste.io")
             echo "Install Poste.io"
@@ -66,8 +66,8 @@ docker run -d -p 9443:9443 --name portainer \
             echo "Install Nginx"
             docker run --detach \
     --name www \
-    --env "VIRTUAL_HOST=allowebs.com" \
-    --env "LETSENCRYPT_HOST=allowebs.com" \
+    --env "VIRTUAL_HOST=$VIRTUAL_HOST" \
+    --env "LETSENCRYPT_HOST=$VIRTUAL_HOST" \
     nginx
             ;;
         "Quit")

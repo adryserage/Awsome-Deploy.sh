@@ -1,0 +1,28 @@
+# TODO LIST
+
+- [x] Add application WordPress installation script
+- [x] Add application NextCloud deployment
+- [x] Add application Gitea/GitLab installation
+- [x] Add application Monitoring tools (Prometheus, Grafana)
+- [x] Add application Database servers (MySQL, PostgreSQL, MongoDB)
+- [x] Add application Ethibox deployment script
+- [x] Add application n8n workflow automation deployment script
+- [x] Add application Nginx Proxy Manager deployment script
+- [x] Add application OnTrack expense tracker deployment script
+- [x] Add application WHMCS billing platform deployment script
+- [x] Add application YunoHost self-hosting platform deployment script
+- [x] Add firewall configuration options
+- [x] Implement automatic security updates
+- [x] Add SSL certificate management for more services
+- [x] Add user management and permission hardening scripts
+- [x] Create scripts for automated backups of containers and volumes
+- [x] Enhance the README.md with more detailed usage instructions
+- [x] Add colored output to scripts for better readability
+- [x] Implement confirmation prompts for destructive operations
+- [x] Add checks for system requirements before installation
+- [x] Add options for remote backup solutions
+- [ ] Add documentation for each script and its options
+- [ ] Create a troubleshooting section
+- [ ] Add progress indicators for long-running operations
+- [ ] Create a Main Menu Script
+- [x] Add detect the IP of server and replace all localhost by the ip of the server
