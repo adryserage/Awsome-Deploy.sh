@@ -21,8 +21,8 @@
 - [x] Implement confirmation prompts for destructive operations
 - [x] Add checks for system requirements before installation
 - [x] Add options for remote backup solutions
-- [ ] Add documentation for each script and its options
-- [ ] Create a troubleshooting section
-- [ ] Add progress indicators for long-running operations
-- [ ] Create a Main Menu Script
+- [x] Add documentation for each script and its options
+- [x] Create a troubleshooting section
+- [x] Add progress indicators for long-running operations
+- [x] Create a Main Menu Script
 - [x] Add detect the IP of server and replace all localhost by the ip of the server
