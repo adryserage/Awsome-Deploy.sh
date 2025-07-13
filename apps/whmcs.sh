@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# shellcheck shell=bash
 
 # WHMCS Installation Script
 # This script installs WHMCS, a web hosting billing & automation platform

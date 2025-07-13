@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# shellcheck shell=bash
 
 # Nginx Proxy Manager Installation Script
 # This script installs Nginx Proxy Manager with automatic SSL certificate management

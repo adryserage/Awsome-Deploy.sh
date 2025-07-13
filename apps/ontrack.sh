@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# shellcheck shell=bash
 
 # OnTrack Installation Script
 # This script installs OnTrack, a personal expense tracking app

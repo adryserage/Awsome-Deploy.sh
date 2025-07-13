@@ -26,3 +26,4 @@
 - [x] Add progress indicators for long-running operations
 - [x] Create a Main Menu Script
 - [x] Add detect the IP of server and replace all localhost by the ip of the server
+- [ ] Fix shellcheck warnings in all script files

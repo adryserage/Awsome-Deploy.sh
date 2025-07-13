@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# shellcheck shell=bash
 
 # YunoHost Installation Script
 # This script installs YunoHost, a self-hosting platform

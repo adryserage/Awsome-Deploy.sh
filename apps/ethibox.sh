@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# shellcheck shell=bash
 
 # Ethibox Installation Script
 # This script installs Ethibox, an open-source web app hoster
